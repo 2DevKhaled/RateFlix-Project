@@ -1,8 +1,8 @@
 import React from "react";
-import { useState, useRef, useEffect} from "react";
+import { useState, useRef, useEffect } from "react";
 import useKey from "./useKey";
-import Loader from './Loader'
-import StarRating from './StarRating'
+import Loader from "./Loader";
+import StarRating from "./StarRating";
 export default function MovieDetails({
   selectedId,
   onCloseMovie,
@@ -56,7 +56,7 @@ export default function MovieDetails({
       async function getMovieDetails() {
         setIsLoading(true);
         const res = await fetch(
-          `http://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`
+          `https://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`
         );
         const data = await res.json();
         setMovie(data);
@@ -72,7 +72,7 @@ export default function MovieDetails({
       document.title = `Movie | ${title}`;
 
       return function () {
-        document.title = "usePopcorn";
+        document.title = "RateFlix";
       };
     },
     [title]
